@@ -43,7 +43,7 @@ namespace Kvant
         [SerializeField]
         float _noiseSpeed = 1.0f;
 
-        [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        [SerializeField]
         Color _color = Color.white;
 
         [SerializeField]
@@ -223,7 +223,9 @@ namespace Kvant
             mesh.vertices = VA;
             mesh.uv = TA;
             mesh.SetIndices(IA, MeshTopology.Lines, 0);
-            mesh.Optimize();
+
+            // Optimize is obselete
+            // mesh.Optimize();
 
             // Avoid being culled.
             mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 1000);
